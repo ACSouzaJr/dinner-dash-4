@@ -1,30 +1,29 @@
 <div class="container-fluid bg-primary d-flex flex-row-reverse px-0">
-      <%# <div class=" image col-8 flex-grow-1"></div> %>
-      <div class="col-4 py-auto bg-white vertical-center">
-        <div class="container h-100 p-3 text-black-50">
+  <div class="col-4 py-auto bg-white vertical-center">
+    <div class="container h-100 p-3 text-black-50">
 
-            <h2 class="text-dark m-5">DinnerDash</h2>
+      <h2 class="text-dark m-5">DinnerDash</h2>
 
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-              <div class="form-group">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-              </div>
-
-              <div class="form-group">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-              </div>
-
-              <div class="action">
-                <%= f.submit "Log in", class: 'btn btn-success btn-lg btn-block' %>
-              </div>
-            <% end %>
-
-            <hr>
-            <p class="text-left">Não possui conta ?</p>
-            <%= render "devise/shared/links" %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        </div>
+
+        <div class="action">
+          <%= f.submit "Log in", class: 'btn btn-success btn-lg btn-block' %>
+        </div>
+      <% end %>
+
+      <hr>
+      <p class="text-left">Não possui conta ?</p>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
