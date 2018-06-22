@@ -1,15 +1,11 @@
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
-
 .container-fluid {
   height: 100vh;
   background: url('sabri-tuzcu-365440.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+}
+
+.nounderline {
+  text-decoration: none !important;
 }
