@@ -1,7 +1,8 @@
 <div class="container-fluid bg-primary">
-  <div class="row h-100 d-flex flex-row-reverse">
+  <div class="row min-h-100 d-flex flex-row-reverse">
     <div class="col-4 bg-white d-flex align-items-center">
       <div class="container p-5 text-black-50">
+
         <h2><%= link_to 'DinnerDash', root_path, class: 'text-dark mb-5 d-block nounderline' %></h2>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,6 +25,7 @@
         <hr>
         <p class="text-left">Não possui conta ?</p>
         <%= render "devise/shared/links" %>
+        
       </div>
     </div>
   </div>
