@@ -1,0 +1,22 @@
+.fixed-table-pagination{
+  display: flex;
+  justify-content: center;
+}
+
+#image-backoffice {
+  overflow: auto;
+  height: 50vh;
+  //check this hack
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('helloquence-61189.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; 
+  background-color: transparent;
+  //filter: brightness(50%);
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  left: 10em;
+}
