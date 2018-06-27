@@ -1,42 +1,15 @@
-<% if flash[:notice] %>
-<p id="notice" class="aler alert-success text-center text-dark m-0 p-2"><%= notice %></p>
-<% end %>
+<%= render "backOffice" %>
 
-<div class="container-fluid position-relative" id="image-backoffice">
-
-  <ul class="nav mt-3">
-    <div class="container d-flex">
-      <h2><%= link_to 'DinnerDash', root_path, class: 'text-white d-block nounderline' %></h2>
-      <li class="nav-item ml-auto">
-      <span class="nav-link text-warning">backoffice</span>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Perfil', edit_user_registration_path, class: 'nav-link text-white' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'nav-link text-white' %>
-      </li>
-    </div>
-  </ul>
-
-  <div class="text-white title mb-5">
-      <h1>BackOffice</h1>
-      <h3>Gerencie pedidos, refeições e mais.</h3>
+<div class="container-fluid bg-dark">
+  <div class="container">
+    <ul class="nav mb-4">
+      <li class="nav-item text-muted"><a class="nav-link" href="#">Pedidos</a></li>
+      <li class="nav-item active text-white nav-link" aria-current="page">Usuários</li>
+      <li class="nav-item text-muted"><a class="nav-link" href="#">Refeições</a></li>
+      <li class="nav-item text-muted"><a class="nav-link" href="#">Categorias de Refeições</a></li>
+    </ul>
   </div>
-
 </div>
-
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb bg-dark mb-4">
-  <div class="container d-flex">
-    <li class="breadcrumb-item text-muted"><a href="#">Pedidos</a></li>
-    <li class="breadcrumb-item active text-white" aria-current="page">Usuários</li>
-    <li class="breadcrumb-item text-muted"><a href="#">Refeições</a></li>
-    <li class="breadcrumb-item text-muted"><a href="#">Categorias de Refeições</a></li>
-  </div>
-  </ol>
-</nav>
 
 <div class="container text-muted">
   <h2>Editar Usuário</h2>
@@ -82,12 +55,3 @@
 
 
 </div>
-
-
-
-<!-- 
-<h1>Editing User</h1>
-<%= render 'form', user: @user %>
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
--->

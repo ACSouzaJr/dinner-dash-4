@@ -1,31 +1,6 @@
-<div class="container-fluid position-relative" id="image-backoffice">
+<%= render "users/backOffice" %>
 
-  <ul class="nav mt-3">
-    <div class="container d-flex">
-      <h2><%= link_to 'DinnerDash', root_path, class: 'text-white d-block nounderline' %></h2>
-      <li class="nav-item ml-auto">
-      <% if current_user.admin? %>
-        <span class="nav-link text-warning">backoffice</span>
-      <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Perfil', edit_user_registration_path, class: 'nav-link text-white' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'nav-link text-white' %>
-      </li>
-    </div>
-  </ul>
-
-  <div class="text-white title mb-5">
-      <h1>Seu Perfil</h1>
-      <h3>Atualize os seus dados pessoais e senha.</h3>
-  </div>
-
-</div>
-
-
-<div class="container mt-4">
+<div class="container mt-5">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
