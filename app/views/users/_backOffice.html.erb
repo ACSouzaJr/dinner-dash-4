@@ -12,7 +12,9 @@
       </button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          <% if current_user.admin? %>
           <span class="nav-item nav-link text-warning">backoffice</span>
+          <% end %>
           <%= link_to 'Perfil', edit_user_registration_path, class: 'nav-item nav-link text-white' %>
           <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'nav-item nav-link text-white' %>
         </div>
