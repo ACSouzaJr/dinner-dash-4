@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  resources :categories
   devise_for :users,:controllers => { :registrations =>'users/registrations'}
   root :to =>'home#index'
   get 'admin', to: 'admin#index'
