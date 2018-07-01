@@ -1,5 +1,10 @@
 <% if flash[:notice] %>
-<p id="notice" class="aler alert-success text-center text-dark m-0 p-2"><%= notice %></p>
+<div id="notice" class="alert alert-success fade show text-center text-dark m-0 p-2">
+  <span><%= notice %></span>
+  <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <% end %>
 
 <div class="container-fluid position-relative" id="image-backoffice">
@@ -22,7 +27,7 @@
     </nav>
   </div>
 
-  <div class="text-white title mb-5">
+  <div class="jumbotron text-white title bg-transparent m-0">
       <h1>BackOffice</h1>
       <h3>Gerencie pedidos, refeições e mais.</h3>
   </div>
