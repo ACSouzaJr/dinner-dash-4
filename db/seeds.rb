@@ -6,7 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Admin", email: "mail@mail.com", password: "123456", admin:true)
+User.destroy_all
+MealCategory.destroy_all
+Meal.destroy_all
+
+
+#users
+User.create(name: "Admin", email: "email@email.com", password: "123456", admin: true)
 User.create(name: "Joao", email: "asd@mail.com", password: "123456")
 User.create(name: "rafael", email: "rafael@mail.com", password: "123456")
 User.create(name: "leticia", email: "leticia@mail.com", password: "123456")
@@ -18,3 +24,9 @@ User.create(name: "joana", email: "joana@mail.com", password: "123456")
 User.create(name: "gabriel1", email: "gabriel1@mail.com", password: "123456")
 User.create(name: "gabriel2", email: "gabriel2@mail.com", password: "123456")
 User.create(name: "gabriel3", email: "gabriel3@mail.com", password: "123456")
+
+#categories
+MealCategory.create! [{name: "Saladas"}, {name: "Molhos"}]
+
+#Meals
+Meal.create! [{name: "salada", meal_categories: '1'}, {name: "salada_mista", meal_categories: '1'}]
