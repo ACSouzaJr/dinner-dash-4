@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-MealCategory.destroy_all
 Meal.destroy_all
+MealCategory.destroy_all
 
 
 #users
@@ -29,4 +29,13 @@ User.create(name: "gabriel3", email: "gabriel3@mail.com", password: "123456")
 MealCategory.create! [{name: "Saladas"}, {name: "Molhos"}]
 
 #Meals
-Meal.create! [{name: "salada", meal_categories: '1'}, {name: "salada_mista", meal_categories: '1'}]
+Meal.create! [
+  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'}
+  ]

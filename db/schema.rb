@@ -27,30 +27,30 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
     t.decimal "price", precision: 10, scale: 2
     t.string "image"
     t.boolean "available"
-    t.bigint "meal_categories_id"
+    t.bigint "meal_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meal_categories_id"], name: "index_meals_on_meal_categories_id"
+    t.index ["meal_category_id"], name: "index_meals_on_meal_category_id"
   end
 
   create_table "order_meals", force: :cascade do |t|
     t.integer "quantity"
-    t.bigint "orders_id"
-    t.bigint "meals_id"
+    t.bigint "order_id"
+    t.bigint "meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meals_id"], name: "index_order_meals_on_meals_id"
-    t.index ["orders_id"], name: "index_order_meals_on_orders_id"
+    t.index ["meal_id"], name: "index_order_meals_on_meal_id"
+    t.index ["order_id"], name: "index_order_meals_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.decimal "price", precision: 10, scale: 2
-    t.bigint "users_id"
-    t.bigint "situations_id"
+    t.bigint "user_id"
+    t.bigint "situation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["situations_id"], name: "index_orders_on_situations_id"
-    t.index ["users_id"], name: "index_orders_on_users_id"
+    t.index ["situation_id"], name: "index_orders_on_situation_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "situations", force: :cascade do |t|
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "meals", "meal_categories", column: "meal_categories_id"
-  add_foreign_key "order_meals", "meals", column: "meals_id"
-  add_foreign_key "order_meals", "orders", column: "orders_id"
-  add_foreign_key "orders", "situations", column: "situations_id"
-  add_foreign_key "orders", "users", column: "users_id"
+  add_foreign_key "meals", "meal_categories"
+  add_foreign_key "order_meals", "meals"
+  add_foreign_key "order_meals", "orders"
+  add_foreign_key "orders", "situations"
+  add_foreign_key "orders", "users"
 end

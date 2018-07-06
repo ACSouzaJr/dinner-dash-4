@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header' %>
 
-<% if user_signed_in? %>
-
-<% if current_user.admin? %>
-<%= controller.redirect_to users_path  %>
+<% @categories.each do |category| %>
+  <div class="container my-5">
+    <h3 class="mb-3 text-muted"><%= category.name %></h3>
+    <div class="card-deck">
+      <% category.meals.each do |meal| %>
+        <div class="card">
+          <div class="position-relative">
+            <%= image_tag "#{meal.image}", alt: '', class: 'card-img-top' %>
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end p-0">
+              <h5 class="bg-dark-50 mb-0 text-white p-2"><%= meal.name %></h5>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><%= meal.description %></h6>
+            <p class="card-text text-success">R$ <%= number_with_precision(meal.price, :precision => 2) %> por porção</p>
+            <div class="form-group">
+              <%= label_tag 'quantity', 'Quantidade', class: 'card-text text-muted'  %>
+              <%= number_field_tag 'quantity', '1', min: 1, step: 1, class: 'form-control' %>
+            </div>
+            <a href="#" class="btn btn-success btn-lg d-block">Go somewhere</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
-<%= link_to 'Perfil', edit_user_registration_path %>
-<h2><%= current_user.name %></h2>
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-
-<% else %>
-
-<h1> Welcome </h1>
-<%= link_to "Sign In", new_user_session_path, :method => :get %>
-<%= link_to "Sign up", new_user_registration_path, :method => :get %>
-
-<% end %>
+<%= render 'shared/footer' %>
