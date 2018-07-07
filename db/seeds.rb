@@ -10,32 +10,36 @@ User.destroy_all
 Meal.destroy_all
 MealCategory.destroy_all
 
-
 #users
-User.create(name: "Admin", email: "email@email.com", password: "123456", admin: true)
-User.create(name: "Joao", email: "asd@mail.com", password: "123456")
-User.create(name: "rafael", email: "rafael@mail.com", password: "123456")
-User.create(name: "leticia", email: "leticia@mail.com", password: "123456")
-User.create(name: "flavio", email: "flavio@mail.com", password: "123456")
-User.create(name: "henrique", email: "henrique@mail.com", password: "123456")
-User.create(name: "amanda", email: "amanda@mail.com", password: "123456")
-User.create(name: "barbara", email: "barbara@mail.com", password: "123456")
-User.create(name: "joana", email: "joana@mail.com", password: "123456")
-User.create(name: "gabriel1", email: "gabriel1@mail.com", password: "123456")
-User.create(name: "gabriel2", email: "gabriel2@mail.com", password: "123456")
-User.create(name: "gabriel3", email: "gabriel3@mail.com", password: "123456")
+User.create! [
+  {name: "Admin", email: "email@email.com", password: "123456", admin: true},
+  {name: "Joao", email: "asd@mail.com", password: "123456"},
+  {name: "rafael", email: "rafael@mail.com", password: "123456"},
+  {name: "leticia", email: "leticia@mail.com", password: "123456"},
+  {name: "flavio", email: "flavio@mail.com", password: "123456"},
+  {name: "henrique", email: "henrique@mail.com", password: "123456"},
+  {name: "amanda", email: "amanda@mail.com", password: "123456"},
+  {name: "barbara", email: "barbara@mail.com", password: "123456"},
+  {name: "joana", email: "joana@mail.com", password: "123456"},
+  {name: "gabriel1", email: "gabriel1@mail.com", password: "123456"},
+  {name: "gabriel2", email: "gabriel2@mail.com", password: "123456"},
+  {name: "gabriel3", email: "gabriel3@mail.com", password: "123456"}
+]
 
 #categories
-MealCategory.create! [{name: "Saladas"}, {name: "Molhos"}]
+MealCategory.create! [
+  {name: "Saladas"},
+  {name: "Molhos"}
+]
 
 #Meals
 Meal.create! [
-  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "salada", meal_category_id: '1', description: 'possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'}
-  ]
+  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
+  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'}
+]
