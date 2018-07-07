@@ -1,0 +1,48 @@
+<%= render "shared/backOffice_header" %>
+<%= render 'backOffice_nav' %>
+
+<div class="container text-muted py-5">
+  <h2>Editar Usuário</h2>
+  <hr>
+  <%= form_with(model: @user, local: true) do |f| %>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :admin %><br />
+          <%= f.select :admin, options_for_select([["Administrador", true], ["Usuário", false]], :selected => f.object.admin), {}, {class: 'form-control'} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :created_at %><br />
+          <%= f.date_field :created_at, autofocus: true, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <%= f.submit "Update", class: 'btn btn-success mr-3 px-4' %>
+      <%= link_to "Back", :back, class: 'btn btn-primary px-4' %>
+    </div>
+    
+  <% end %>
+
+</div>
+
+<%= render 'shared/footer' %>

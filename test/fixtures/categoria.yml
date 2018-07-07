@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  numero: 1
+  cadastrado: 2018-07-07 15:00:12
+
+two:
+  nome: MyString
+  numero: 1
+  cadastrado: 2018-07-07 15:00:12
