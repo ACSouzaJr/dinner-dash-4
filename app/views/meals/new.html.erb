@@ -1,11 +1,11 @@
 <%= render "shared/backOffice_header" %>
 <%= render 'shared/backOffice_nav' %>
-
 <div class="container text-muted py-5">
+<h5><strong>Nova refeição</strong></h5>
+<hr>
 
-<h2>Editar Categoria</h2>
+<%= render 'form', meal: @meal %>
 
-<%= render 'form2', categorium: @categorium %>|
-
-
+</div>
 <%= render 'shared/footer' %>
+

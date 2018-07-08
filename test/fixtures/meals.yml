@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  categorium: one
+  description: MyString
+  price: MyString
+  available: MyString
+
+two:
+  name: MyString
+  categorium: two
+  description: MyString
+  price: MyString
+  available: MyString
