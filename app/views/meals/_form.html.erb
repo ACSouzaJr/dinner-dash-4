@@ -42,8 +42,8 @@
   </div>
 
   <div class="actions buttons-position">
-      <%= form.submit "criar refeição", class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
-      <%= link_to 'atualizar refeição', @meal, class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
+      <%= form.submit 'criar refeição', class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
+      <%= form.submit 'atualizar refeição', class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
       <%= link_to 'voltar', meals_path, class: "btn btn-secondary buttons-new back-position"%>
   </div>
 <% end %>
