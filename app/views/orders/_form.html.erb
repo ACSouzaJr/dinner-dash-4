@@ -11,18 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :user_id %>
     <%= form.text_field :user_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :situation_id %>
+  <div class="form-group">
+      <%= form.label :created_at %><br />
+      <%= form.date_field :created_at, autofocus: true, class: 'form-control', readonly: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :situation_id, "Status"%>
     <%= collection_select(:order, :situation_id,  @select_situation, :id, :description, {}, {:class=>'form-control'})%>
   </div>
 

@@ -14,8 +14,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
     select_situation
+    @order = Order.new
+    @order_meals = OrderMeal.all
   end
 
   # GET /orders/1/edit
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    select_situation
     @order = Order.new(order_params)
 
     respond_to do |format|
@@ -63,11 +65,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
 
-    def select_situation
-      @select_situation = Situation.all
-    end
+  def select_situation
+    @select_situation = Situation.all
+  end
+  
+
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
