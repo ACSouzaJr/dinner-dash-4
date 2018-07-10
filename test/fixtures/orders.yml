@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  users: one
+  situations: one
+
+two:
+  price: 9.99
+  users: two
+  situations: two

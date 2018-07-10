@@ -1,3 +1,18 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#image-homepage {
+  overflow: auto;
+  height: 55vh;
+  //check this hack
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('jay-wennington-2065.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; 
+  background-color: transparent;
+}
+
+.bg-dark-50 {
+  background: rgba(0,0,0,0.60);
+}
