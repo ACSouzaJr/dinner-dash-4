@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categoria", force: :cascade do |t|
+    t.string "nome"
+    t.index ["nome"], unique: true
+    t.integer "numero"
+    
   create_table "meal_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
