@@ -1,0 +1,49 @@
+<%= form_with(model: meal, local: true) do |form| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+    <div class="field col">
+      <%= form.label :name, "Nome"%>
+      <%= form.text_field :name, class: "form-control"%>
+    </div>
+
+    <div class="field col">
+      <%= form.label :categorium_id, "Categoria"%>
+      <%= collection_select(:meal, :categorium_id,  @select_meal_category, :id, :nome, {}, {:class=>'form-control'})%>
+    </div>
+</div>
+
+<div>
+    <div class="field">
+      <%= form.label :description, "Descrição"%>
+      <%= form.text_field :description, class: "form-control", id:"exampleFormControlTextarea1" %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="field col">
+      <%= form.label :price, "Preço"%>
+      <%= form.text_field :price, class: "form-control" %>
+    </div>
+</div>
+
+  <div class="field">
+      <%= check_box "available", {checked: false} if !current_page?('/meals/new')%>
+      <%= form.label :available, "Esta refeição não estará disponível no cardápio" if !current_page?('/meals/new')%>
+  </div>
+
+  <div class="actions buttons-position">
+      <%= form.submit 'criar refeição', class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
+      <%= form.submit 'atualizar refeição', class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
+      <%= link_to 'voltar', meals_path, class: "btn btn-secondary buttons-new back-position"%>
+  </div>
+<% end %>

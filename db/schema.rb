@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
 
   create_table "categoria", force: :cascade do |t|
     t.string "nome"
-    t.index ["nome"], unique: true
     t.integer "numero"
     
   create_table "meal_categories", force: :cascade do |t|
@@ -62,6 +61,18 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nome"], name: "index_categoria_on_nome", unique: true
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.bigint "categorium_id"
+    t.string "description"
+    t.string "price"
+    t.string "available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["categorium_id"], name: "index_meals_on_categorium_id"
   end
 
   create_table "users", force: :cascade do |t|
