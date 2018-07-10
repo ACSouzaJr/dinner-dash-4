@@ -2,14 +2,16 @@
 
 one:
   name: MyString
-  categorium: one
-  description: MyString
-  price: MyString
-  available: MyString
+  description: MyText
+  price: 9.99
+  image: MyString
+  available: false
+  meal_categories: one
 
 two:
   name: MyString
-  categorium: two
-  description: MyString
-  price: MyString
-  available: MyString
+  description: MyText
+  price: 9.99
+  image: MyString
+  available: false
+  meal_categories: two
