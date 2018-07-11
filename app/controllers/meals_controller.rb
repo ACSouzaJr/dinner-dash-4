@@ -66,7 +66,7 @@ class MealsController < ApplicationController
   private
 
     def select_meal_category
-      @select_meal_category = Categorium.all
+      @select_meal_category = MealCategory.all
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
@@ -75,6 +75,6 @@ class MealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_params
-      params.require(:meal).permit(:name, :categorium_id, :description, :price, :available)
+      params.require(:meal).permit(:name, :meal_category_id, :description, :price, :available)
     end
 end
