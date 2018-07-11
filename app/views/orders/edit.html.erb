@@ -4,56 +4,7 @@
 <h5>Editar pedidos</h5>
 <hr>
 
-<%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="row">
-        <div class="col">            
-            <div class="field form-group">
-                <%= form.label :situation_id %>
-                <%= collection_select(:order, :situation_id,  @select_situation, :id, :description, {}, {:class=>'form-control'})%>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col"> 
-            <div class="form-group">
-                <%= form.label :created_at %><br />
-                <%= form.date_field :created_at, autofocus: true, class: 'form-control', readonly: true %>
-            </div>
-
-            <div class="field form-group">
-                <%= form.label :user_id %>
-                <%= form.text_field :user_id %>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col"> 
-            <div class="field form-group">
-                <%= form.label :price %>
-                <%= form.text_field :price %>
-            </div>
-        </div>
-    </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'editar', order: @order %>
 
 </div>
 <%= render 'shared/footer' %>
