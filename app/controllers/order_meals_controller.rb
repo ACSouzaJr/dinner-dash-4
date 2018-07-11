@@ -1,16 +1,20 @@
 class OrderMealsController < ApplicationController
   
   def create
-    byebug
+    #byebug
     current_cart << order_meal_params
   end
 
   def update
-    current_cart.update(order_meal_params)
+    #byebug
+    @item = current_cart.find { |h| h['meal_id'] == params[:order_meal][:meal_id] }
+    @item.update(order_meal_params)
   end
   
   def destroy
-    current_cart.delete(order_meal_params)
+    #byebug
+    delete_params = params.permit(:quantity, :meal_id)
+    current_cart.delete(delete_params)
   end
 
   private
