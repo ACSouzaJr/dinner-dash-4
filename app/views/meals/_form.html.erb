@@ -17,8 +17,8 @@
     </div>
 
     <div class="field col">
-      <%= form.label :categorium_id, "Categoria"%>
-      <%= collection_select(:meal, :categorium_id,  @select_meal_category, :id, :nome, {}, {:class=>'form-control'})%>
+      <%= form.label :meal_category_id, "Categoria"%>
+      <%= collection_select(:meal, :meal_category_id,  @select_meal_category, :id, :name, {}, {:class=>'form-control'})%>
     </div>
 </div>
 
@@ -37,11 +37,11 @@
 </div>
 
   <div class="field">
-      <%= check_box "available", {checked: false} if !current_page?('/meals/new')%>
+      <%= form.check_box "available", {checked: false} if !current_page?('/meals/new')%>
       <%= form.label :available, "Esta refeição não estará disponível no cardápio" if !current_page?('/meals/new')%>
   </div>
 
-  <div class="actions buttons-position">
+  <div class="actions buttons-position mt-4">
       <%= form.submit 'criar refeição', class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
       <%= form.submit 'atualizar refeição', class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
       <%= link_to 'voltar', meals_path, class: "btn btn-secondary buttons-new back-position"%>
