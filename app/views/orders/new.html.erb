@@ -1,0 +1,11 @@
+<%= render "shared/backOffice_header" %>
+<%= render 'shared/backOffice_nav' %>
+<div class="container text-muted py-5">
+<h5>Novo pedido</h5>
+<hr>
+
+<%= render 'form', order: @order %>
+
+</div>
+<%= render 'shared/footer' %>
+<%= link_to 'Back', orders_path %>
