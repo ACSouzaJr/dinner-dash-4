@@ -43,3 +43,18 @@ Meal.create! [
   {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
   {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'}
 ]
+
+#Situation
+Situation.create! [
+  {description: "pendente"},
+  {description: "entregue"},
+  {description: "cancelado"}
+]
+
+#Orders
+Order.create! [
+  {situation_id: '1', user_id: '2', price: '72,00'},
+  {situation_id: '3', user_id: '2', price: '105,00'},
+  {situation_id: '1', user_id: '3', price: '90,00'},
+  {situation_id: '2', user_id: '5', price: '145,00'}
+]
