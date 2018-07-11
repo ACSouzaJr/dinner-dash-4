@@ -16,10 +16,13 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= meal.description %></h6>
             <p class="card-text text-success">R$ <%= number_with_precision(meal.price, :precision => 2) %> por porção</p>
             <div class="form-group">
-              <%= label_tag 'quantity', 'Quantidade', class: 'card-text text-muted'  %>
-              <%= number_field_tag 'quantity', '1', min: 1, step: 1, class: 'form-control' %>
+              <%= form_for @cart_item do |f| %>
+                <% f.label :quantity, "quantity", class: 'card-text text-muted' %>
+                <% f.number_field :quantity, min: 1, step: 1, class: 'form-control' %>
+                <% f.hidden_field :meal_id, value: meal.id %>
+                <% f.submit "Submit", disable_with: 'Submiting...', class: 'btn btn-success btn-block' %>
+              <% end %>
             </div>
-            <a href="#" class="btn btn-success btn-lg d-block">Go somewhere</a>
           </div>
         </div>
       <% end %>
