@@ -20,12 +20,23 @@
     <% @orders.each do |order| %>
       <tr>
         <td>1098768</td>
-        <td><%= order.situation %></td>
+        <td>
+        <% if order.situation.description == "pendente" %>
+            <span class="badge badge-primary mr-1 px-4"><%= order.situation.description %></span>
+        <% end %>
+        <% if order.situation.description == "entregue" %>
+            <span class="badge badge-success mr-1 px-4"><%= order.situation.description %></span>
+        <% end %>
+        <% if order.situation.description == "cancelado" %>
+            <span class="badge badge-danger mr-1 px-4"><%= order.situation.description %></span>
+        <% end %>       
+        </td>
         <td><%= order.created_at.strftime("%d/%m/%y")%></td>
-        <td><%= order.user %></td>
-        <td><%= order.price %></td>
-        <td><%= link_to 'editar', edit_order_path(order) %></td>
-        <td><%= link_to 'excluir', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= order.user.name %></td>
+        <td>R$ <%= order.price %></td>
+        <td><%= link_to 'ver itens pedidos', order %></td>
+        <td><%= link_to 'editar', edit_order_path(order), class: 'text-warning'%></td>
+        <td><%= link_to 'excluir', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
       </tr>
     <% end %>
   </tbody>
