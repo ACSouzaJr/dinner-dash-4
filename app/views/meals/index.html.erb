@@ -9,7 +9,8 @@
       <th>Categoria</th>
       <th>Preço</th>
       <th>Disponivel</th>
-      <th colspan="2"></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,7 +19,7 @@
       <tr>
         <td><%= meal.name %></td>
         <td><%= meal.meal_category.name%></td>
-        <td><%= meal.price %></td>
+        <td>R$ <%= meal.price %></td>
         <td><%= meal.available %></td>
         <td><%= link_to 'editar', edit_meal_path(meal) %></td>
         <td><%= link_to 'excluir', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
