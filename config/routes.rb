@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :situations
   resources :meals
-  resources :meal_categories, only: [:create]
+  resources :meal_categories
   devise_for :users,:controllers => { :registrations =>'users/registrations'}
   root :to =>'home#index'
   resources :users, except: [:create, :new, :show]

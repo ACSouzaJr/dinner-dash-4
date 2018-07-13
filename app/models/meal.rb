@@ -3,7 +3,9 @@ class Meal < ApplicationRecord
   has_many :order_meals
 
   validates :name, presence: true
-  #validates :price, presence: true
+  validates :price, presence: true
   #validates :meal_categories_id, presence: true
   
+  mount_uploader :image, ImageUploader
+
 end
