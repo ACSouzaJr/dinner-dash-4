@@ -38,6 +38,27 @@ class OrdersController < ApplicationController
     #Order.Situation = 1 => pendente
     #Order.save
     
+    select_situation
+    @order = Order.new
+
+    @order.user = current_user
+    @order.situation_id = Situation.first.id
+    @order.price = params[:total_price].to_f
+    @order.save
+    current_cart.each do |item|
+      @meal = Meal.find item['meal_id']
+      OrderMeal.create(order: @order, meal: @meal, quantity: item['quantity'])
+    end
+
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @orders_path }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /orders/1
