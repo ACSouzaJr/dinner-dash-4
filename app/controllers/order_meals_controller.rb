@@ -19,8 +19,9 @@ class OrderMealsController < ApplicationController
   
   def destroy
     #byebug
-    delete_params = params.permit(:quantity, :meal_id)
-    current_cart.delete(delete_params)
+    #delete_params = params.permit(:quantity, :meal_id)
+    #current_cart.delete(delete_params)
+    current_cart.delete_if {|product| product['meal_id'] == params[:meal_id]}
   end
 
   private
