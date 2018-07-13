@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_admin, except: [:create, :show]
 
   # GET /orders
   # GET /orders.json
@@ -49,9 +51,11 @@ class OrdersController < ApplicationController
       @meal = Meal.find item['meal_id']
       OrderMeal.create(order: @order, meal: @meal, quantity: item['quantity'])
     end
-
+    
     respond_to do |format|
       if @order.save
+        #esvazia o carrinho
+        session[:cart] = nil
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @orders_path }
       else
@@ -86,12 +90,11 @@ class OrdersController < ApplicationController
   end
 
 
-  def select_situation
-    @select_situation = Situation.all
-  end
-  
-
   private
+    def select_situation
+      @select_situation = Situation.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])

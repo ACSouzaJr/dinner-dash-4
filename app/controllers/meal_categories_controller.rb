@@ -1,5 +1,7 @@
 class MealCategoriesController < ApplicationController
   before_action :set_meal_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_admin
 
   # GET /meal_categories
   # GET /meal_categories.json

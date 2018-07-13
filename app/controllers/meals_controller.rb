@@ -1,6 +1,8 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   before_action :select_meal_category, only: [:new, :edit, :update, :create]
+  before_action :authenticate_user!
+  before_action :authorize_admin
 
   # GET /meals
   # GET /meals.json
@@ -67,6 +69,7 @@ class MealsController < ApplicationController
     def select_meal_category
       @select_meal_category = MealCategory.all
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_meal
       @meal = Meal.find(params[:id])
