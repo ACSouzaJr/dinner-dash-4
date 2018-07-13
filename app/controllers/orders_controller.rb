@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :authorize_admin, except: [:create, :show]
+  before_action :check_cart, only: [:create]
 
   # GET /orders
   # GET /orders.json
@@ -94,6 +95,11 @@ class OrdersController < ApplicationController
     def select_situation
       @select_situation = Situation.all
     end
+
+    def check_cart
+      redirect_to root_path, alert: 'Adicione items ao carrinho!' unless !current_cart.empty?
+    end
+    
 
     # Use callbacks to share common setup or constraints between actions.
     def set_order

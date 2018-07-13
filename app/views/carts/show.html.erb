@@ -23,7 +23,7 @@
         </div>
 
         <div class="col">
-            <h5>Preço total do pedido: <span class="text-success"><%= number_to_currency cart_total_price, unit: "R$ " %></span></h5>
+            <h5>Preço total do pedido: <span class="text-success" id="cart-text"><%= number_to_currency cart_total_price %></span></h5>
             <%= link_to "finalizar e pagar", orders_path(total_price: cart_total_price), method: :POST, class: 'btn btn-success px-5' %>
         </div>
     </div>
