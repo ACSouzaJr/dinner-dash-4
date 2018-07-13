@@ -1,60 +1,53 @@
-<%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% meal.errors.full_messages.each do |message| %>
-        <li class="text-danger"><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="row">
-    <div class="field col">
-      <%= form.label :name, "Nome"%>
-      <%= form.text_field :name, class: "form-control"%>
-    </div>
+<%= form_with(model: meal, local: true, html: {multipart: true}) do |form| %>
+  <%= render 'shared/form_error', obj: meal %>
 
-    <div class="field col">
-      <%= form.label :meal_category_id, "Categoria"%>
-      <%= collection_select(:meal, :meal_category_id,  @select_meal_category, :id, :name, {}, {:class=>'form-control'})%>
-    </div>
-</div>
+  <div class="row">
+      <div class="field col">
+        <%= form.label :name, "Nome"%>
+        <%= form.text_field :name, class: "form-control"%>
+      </div>
 
-<br>
-
-<div>
-    <div class="field">
-      <%= form.label :description, "Descrição"%>
-      <%= form.text_field :description, class: "form-control", id:"exampleFormControlTextarea1" %>
-    </div>
-</div>
-
-<br>
-
-<div class="row">
-    <div class="field col">
-      <%= form.label :price, "Preço"%>
-      <%= form.text_field :price, class: "form-control" %>
-    </div>
-
-    <div class="field col">
-      <%= form.label :image, "Imagem" %><br>
-      <div class="custom-file">
-        <%= form.file_field :image, class: "form-control input-group-text" %>
+      <div class="field col">
+        <%= form.label :meal_category_id, "Categoria"%>
+        <%= collection_select(:meal, :meal_category_id,  @select_meal_category, :id, :name, {}, {:class=>'form-control'})%>
       </div>
   </div>
-</div>
 
-<br>
+  <br>
 
-<div class="field">
-    <%= form.check_box "available", {checked: false} if !current_page?('/meals/new')%>
-    <%= form.label :available, "Esta refeição não estará disponível no cardápio" if !current_page?('/meals/new')%>
-</div>
+  <div>
+      <div class="field">
+        <%= form.label :description, "Descrição"%>
+        <%= form.text_field :description, class: "form-control", id:"exampleFormControlTextarea1" %>
+      </div>
+  </div>
 
-<div class="actions buttons-position mt-4">
-    <%= form.submit 'criar refeição', class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
-    <%= form.submit 'atualizar refeição', class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
-    <%= link_to 'voltar', meals_path, class: "btn btn-secondary buttons-new back-position"%>
-</div>
+  <br>
+
+  <div class="row">
+      <div class="field col">
+        <%= form.label :price, "Preço"%>
+        <%= form.text_field :price, class: "form-control" %>
+      </div>
+
+      <div class="field col">
+        <%= form.label :image, "Imagem" %><br>
+        <div class="custom-file">
+          <%= form.file_field :image, class: "form-control input-group-text" %>
+        </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="field">
+      <%= form.check_box "available", {checked: false} if !current_page?('/meals/new')%>
+      <%= form.label :available, "Esta refeição não estará disponível no cardápio" if !current_page?('/meals/new')%>
+  </div>
+
+  <div class="actions buttons-position mt-4">
+      <%= form.submit 'criar refeição', class: "btn btn-success buttons-new" if current_page?('/meals/new')%> 
+      <%= form.submit 'atualizar refeição', class: "btn btn-success buttons-new" if !current_page?('/meals/new') %>
+      <%= link_to 'voltar', meals_path, class: "btn btn-secondary buttons-new back-position"%>
+  </div>
 <% end %>

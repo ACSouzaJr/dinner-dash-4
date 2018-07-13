@@ -7,11 +7,6 @@ class MealCategoriesController < ApplicationController
     @meal_categories = MealCategory.all
   end
 
-  # GET /meal_categories/1
-  # GET /meal_categories/1.json
-  def show
-  end
-
   # GET /meal_categories/new
   def new
     @meal_category = MealCategory.new

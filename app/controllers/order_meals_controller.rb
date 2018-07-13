@@ -10,12 +10,7 @@ class OrderMealsController < ApplicationController
       current_cart << order_meal_params
       #current_cart.uniq! #nao permited duplicação
     end
-    
-    respond_to do |format|
-      format.js
-    end
 
-    #redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -35,7 +30,7 @@ class OrderMealsController < ApplicationController
     params.require(:order_meal).permit(:quantity, :meal_id)
   end
   def set_item
-    @item = current_cart.find { |h| h['meal_id'] == params[:order_meal][:meal_id] }
+    @item = current_cart.find { |product| product['meal_id'] == params[:order_meal][:meal_id] }
   end
   
 end

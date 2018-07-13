@@ -1,23 +1,14 @@
 
 <%= form_with(model: meal_category, local: true) do |form| %>
-  <% if meal_category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal_category.errors.count, "error") %> prohibited this meal_category from being saved:</h2>
-
-      <ul>
-      <% meal_category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/form_error', obj: meal_category %>
 
   <div class="row">
       <div class="form-group col">
     <%= form.label :name %>
     <%= form.text_field :name, class: 'form-control'  %>
       </div>
-</div>
+  </div>
+  
   <div class="actions">
     <%= form.submit "Criar nova categoria",class: 'btn btn-success mr-3 px-4'  %>
     <%= link_to 'Voltar', meal_categories_path ,class: 'btn btn-secondary px-4' %>

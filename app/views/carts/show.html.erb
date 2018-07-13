@@ -1,18 +1,34 @@
 <%= render 'home/header' %>
 
-<div class="container my-5">
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">O seu pediso.</h5>
+      <h6 class="card-subtitle mb-3 text-muted">Confira os itens antes de finalizar a compra.</h6>
+      <div class="shopping-cart">
+        <%= render 'home/shopping_cart' %>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
     <br><br><br><hr><br>
     <div class="row">
         <div class="col">
             <h5><strong>Esqueceu algo?</h5></strong>
-            <%= link_to "Clique aqui", root_path, class: 'text-primary' %> para retornar ao menu
+            <%= link_to "Clique aqui", root_path, class: 'text-primary' %> para retornar ao menu.
         </div>
 
         <div class="col">
-            <h5>Preço total do pedido: <span class="text-success"><%= number_to_currency cart_total_price %></span></h5>
+            <h5>Preço total do pedido: <span class="text-success"><%= number_to_currency cart_total_price, unit: "R$ " %></span></h5>
             <%= link_to "finalizar e pagar", orders_path(total_price: cart_total_price), method: :POST, class: 'btn btn-success px-5' %>
         </div>
     </div>
 
     <br><hr>
 </div>
+
+<%= render 'shared/footer' %>

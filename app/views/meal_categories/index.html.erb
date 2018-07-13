@@ -2,26 +2,26 @@
 <%= render 'shared/backOffice_nav' %>
 
 <div class="container pb-3 pt-4">
- <table id="table" class="table table-hover">
+ <table class="ctable">
 
-    <thead class="thead-light">
-    <tr>
-      <th>Nome</th>
-      <th>Número de refeições</th>
-      <th>Cadastrado em</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <thead class="thead-light">
+  <tr>
+    <th>Nome</th>
+    <th>Número de refeições</th>
+    <th>Cadastrado em</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
 
   <tbody>
     <% @meal_categories.each do |meal_category| %>
       <tr>
         <td><%= meal_category.name %></td>
-        <td></td>
+        <td><%= meal_category.meals.count %></td>
         <td><%= meal_category.created_at.strftime("%d/%m/%y")%></td>
-        <td><%= link_to 'Editar', edit_meal_category_path(meal_category) %></td>
-        <td><%= link_to 'Deletar', meal_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_meal_category_path(meal_category), class: 'text-warning' %></td>
+        <td><%= link_to 'Deletar', meal_category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
       </tr>
     <% end %>
   </tbody>
