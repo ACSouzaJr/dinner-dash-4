@@ -28,7 +28,16 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     select_situation
-    @order = Order.new(order_params)
+    @order = Order.new
+
+    @order.user = current_user
+    @order.situation_id = Situation.first.id
+    @order.price = params[:total_price].to_f
+    @order.save
+    current_cart.each do |item|
+      @meal = Meal.find item['meal_id']
+      OrderMeal.create(order: @order, meal: @meal, quantity: item['quantity'])
+    end
 
     respond_to do |format|
       if @order.save
