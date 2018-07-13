@@ -16,7 +16,7 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= meal.description %></h6>
             <p class="card-text text-success">R$ <%= number_with_precision(meal.price, :precision => 2) %> por porção</p>
             <div class="form-group">
-              <%= form_for @cart_item do |f| %>
+              <%= form_for @cart_item, remote: true do |f| %>
                 <div class="form-group">
                   <%= f.label :quantity, "Quantity", class: 'card-text text-muted' %>
                   <%= f.number_field :quantity, value: 1, min: 1, step: 1, class: 'form-control' %>
@@ -34,13 +34,21 @@
 
 
 <div class="container">
-  <div class="cart">
-    <%= render 'shopping_cart' %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Finalizou o seu pedido?</h5>
+      <h6 class="card-subtitle mb-3 text-muted">Confira os itens antes de finalizar a compra.</h6>
+      <div class="shopping-cart">
+        <%= render 'shopping_cart' %>
+      </div>
+      
+    </div>
   </div>
 
   <br><hr><br>
 
-  <h3 class="cart-text"><%= render 'cart_text' %></h3>
+  <h3>Preço total do pedido: <span class="text-success" id="cart-text"><%= number_to_currency cart_total_price %></span></h3>
+
 </div>
 
 <div class="container mb-4">

@@ -10,6 +10,12 @@ class OrderMealsController < ApplicationController
       current_cart << order_meal_params
       #current_cart.uniq! #nao permited duplicação
     end
+    
+    respond_to do |format|
+      format.js
+    end
+
+    #redirect_back(fallback_location: root_path)
   end
 
   def update
