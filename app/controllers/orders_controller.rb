@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
     #Order.Situation = 1 => pendente
     #Order.save
     
-    select_situation
+    #select_situation
     @order = Order.new
 
     @order.user = current_user
@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @orders_path }
       else
         format.html { render :new }
