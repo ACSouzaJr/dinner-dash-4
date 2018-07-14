@@ -1,31 +1,33 @@
-<div class="container">
-  <h2>Pedidos anteriores</h2>
+<section style="border-top: 2px solid #eaeaea">
+  <div class="container">
+    <h3 class="py-4">Pedidos anteriores</h3>
 
-  <% if current_user.orders.empty? %>
-    <p class="text-center alert alert-primary">Voce ainda não fez nenhum pedido.</p>
-  <% else %>
-    <table class="ctable">
-      <thead>
-        <tr>
-          <th>Pedido nº</th>
-          <th>Status</th>
-          <th>Data</th>
-          <th>Preço total</th>
-          <th>Detalhes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.orders.each_with_index do |order, index| %>
+    <% if current_user.orders.empty? %>
+      <p class="text-center alert alert-primary">Voce ainda não fez nenhum pedido.</p>
+    <% else %>
+      <table class="ctable">
+        <thead>
           <tr>
-            <td><%= index %></td>
-            <td><%= order.situation.description %></td>
-            <td><%= order.created_at.strftime("%d/%m/%y") %></td>
-            <td><%= number_to_currency(order.price, unit: "R$ ") %></td>
-            <td><%= link_to 'Show', order_path(order) %></td>
+            <th>Pedido nº</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Preço total</th>
+            <th>Detalhes</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+        </thead>
+        <tbody>
+          <% current_user.orders.each_with_index do |order, index| %>
+            <tr>
+              <td><%= index %></td>
+              <td><%= order.situation.description %></td>
+              <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+              <td><%= number_to_currency(order.price, unit: "R$ ") %></td>
+              <td><%= link_to 'Show', order_path(order) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
 
-</div>
+  </div>
+</section>
