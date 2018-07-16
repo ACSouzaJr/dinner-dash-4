@@ -35,14 +35,14 @@ MealCategory.create! [
 
 #Meals
 Meal.create! [
-  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
-  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
-  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
-  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
-  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
-  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
-  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
-  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'}
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: Rails.root.join("app/assets/images/meals/macrao.jpg").open}
 ]
 
 #Situation
