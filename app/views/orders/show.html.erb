@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= render 'home/header' %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @order.price %>
-</p>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Seu ultimo pedido.</h5>
+      <h6 class="card-subtitle mb-3 text-muted">Aguarde seu pedido ser entregue.</h6>
+      <div class="container">
+        <% @order.order_meals.in_groups_of(3, false) do |group| %>
+          <div class="row">
+            <% group.each do |order_meal| %>
+              <div class="col-sm-4">
+                <%= render 'orders/show_row', product: order_meal.meal, quantity: order_meal.quantity %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
+</div>
 
-<p>
-  <strong>Situation:</strong>
-  <%= @order.situation %>
-</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= render 'carts/pedidos_anteriores' %>
+<%= render 'shared/footer' %>
