@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_180012) do
+ActiveRecord::Schema.define(version: 2018_07_05_212442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categoria", force: :cascade do |t|
-    t.string "nome"
-    t.integer "numero"
-    t.datetime "cadastrado"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "meal_categories", force: :cascade do |t|
     t.string "name"
@@ -34,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_180012) do
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.string "image"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.bigint "meal_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

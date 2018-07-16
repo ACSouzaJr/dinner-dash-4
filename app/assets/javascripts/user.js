@@ -1,9 +1,9 @@
 //remover os detalhes
 $(document).on('turbolinks:load', function () {
-  $('#table').bootstrapTable({
+  $('.ctable').bootstrapTable({
     pagination: true,
     pageSize: 8,
-    classes: 'table-no-bordered',
+    classes: 'table table-hover table-no-bordered',
     formatRecordsPerPage: function () {
       return ''
     },

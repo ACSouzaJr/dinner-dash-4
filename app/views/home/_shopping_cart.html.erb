@@ -1,0 +1,7 @@
+<% if current_cart.empty? %>
+  <p class="alert alert-primary text-center"> Carrinho vazio.</p>
+<% else %>
+  <% current_cart.each do |item| %>
+    <%= render 'home/cart_row', product: Meal.find(item["meal_id"]), quantity: item["quantity"], show_total: true, item: item %>
+  <% end %>
+<% end %>

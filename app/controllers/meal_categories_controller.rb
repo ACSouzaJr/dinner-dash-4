@@ -1,15 +1,12 @@
 class MealCategoriesController < ApplicationController
   before_action :set_meal_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_admin
 
   # GET /meal_categories
   # GET /meal_categories.json
   def index
     @meal_categories = MealCategory.all
-  end
-
-  # GET /meal_categories/1
-  # GET /meal_categories/1.json
-  def show
   end
 
   # GET /meal_categories/new

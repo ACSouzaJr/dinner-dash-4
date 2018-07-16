@@ -1,8 +1,9 @@
 <%= render "shared/backOffice_header" %>
 <%= render 'shared/backOffice_nav' %>
 
+<!--
 <div class="container pb-3 pt-4">
-<table id="table" class="table table-hover">
+<table class="ctable">
   <thead class="thead-light">
     <tr>
       <th>Nome</th>
@@ -35,3 +36,36 @@
 </div>
 
 <%= render 'shared/footer' %>
+
+-->
+
+<div class="container my-5">
+      <% @meals.in_groups_of(4, false) do |group| %>
+      <div class="card-deck">
+      <% group.each do |meal| %>
+        <div class="card w-25">
+          <div class="position-relative">
+            <%= image_tag "#{meal.image}", alt: '', class: 'card-img-top' %>
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end p-0">
+              <h5 class="bg-dark-50 mb-0 text-white p-2"><%= meal.name %></h5>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><%= meal.description %></h6>
+            <p class="card-text text-success"><strong>R$ <%= number_with_precision(meal.price, :precision => 2) %> por porção</strong></p>
+          </div>
+          <div class="row card-body">
+            <div class="col">
+              <%= link_to 'editar', edit_meal_path(meal), class: "btn btn-warning mr-2 px-4 btn-sm btn-block" %>
+              <%= link_to 'excluir', meal, class: "btn btn-danger mr-2 px-4 btn-sm btn-block", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      <br>
+      <% end %>
+  <br>
+  <%= link_to 'Nova refeição', new_meal_path , class: 'btn btn-success mr-3 px-4' %>
+  </div>
+  <%= render 'shared/footer' %>   

@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_admin, except: [:create, :show]
+  before_action :check_cart, only: [:create]
 
   # GET /orders
   # GET /orders.json
@@ -27,12 +30,34 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    select_situation
-    @order = Order.new(order_params)
+    #current_cart.each do |item|
+    #  item['meal_id']
+    #  item['quantity']
+    #end
+    #curent_user
+    #Order.order_meals.new(:meal_id, :quantity)
+    #Order.user
+    #Order.price cart_total_price
+    #Order.Situation = 1 => pendente
+    #Order.save
+    
+    #select_situation
+    @order = Order.new
 
+    @order.user = current_user
+    @order.situation_id = Situation.first.id
+    @order.price = params[:total_price].to_f
+    @order.save
+    current_cart.each do |item|
+      @meal = Meal.find item['meal_id']
+      OrderMeal.create(order: @order, meal: @meal, quantity: item['quantity'])
+    end
+    
     respond_to do |format|
       if @order.save
-        format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
+        #esvazia o carrinho
+        session[:cart] = nil
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @orders_path }
       else
         format.html { render :new }
@@ -66,12 +91,16 @@ class OrdersController < ApplicationController
   end
 
 
-  def select_situation
-    @select_situation = Situation.all
-  end
-  
-
   private
+    def select_situation
+      @select_situation = Situation.all
+    end
+
+    def check_cart
+      redirect_to root_path, alert: 'Adicione items ao carrinho!' unless !current_cart.empty?
+    end
+    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
