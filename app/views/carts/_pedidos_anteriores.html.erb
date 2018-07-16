@@ -19,14 +19,24 @@
           <% current_user.orders.each_with_index do |order, index| %>
             <tr>
               <td><%= index %></td>
-              <td><%= order.situation.description %></td>
+              <td>
+              <% if order.situation.description == "pendente" %>
+                  <span class="badge badge-primary mr-1 px-4 d-block"><%= order.situation.description %></span>
+              <% end %>
+              <% if order.situation.description == "entregue" %>
+                  <span class="badge badge-success mr-1 px-4 d-block"><%= order.situation.description %></span>
+              <% end %>
+              <% if order.situation.description == "cancelado" %>
+                  <span class="badge badge-danger mr-1 px-4 d-block"><%= order.situation.description %></span>
+              <% end %>       
+              </td>
               <td><%= order.created_at.strftime("%d/%m/%y") %></td>
               <td><%= number_to_currency(order.price, unit: "R$ ") %></td>
-              <td><button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#myModal">Ver itens pedidos</button></td>
+              <td><button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target='#myModal<%= "#{index}" %>'>Ver itens pedidos</button></td>
             </tr>
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
+            <div class="modal fade bd-example-modal-lg" id='myModal<%= "#{index}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Detalhes do pedido</h4>
