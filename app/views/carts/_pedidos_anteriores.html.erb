@@ -24,6 +24,34 @@
               <td><%= number_to_currency(order.price, unit: "R$ ") %></td>
               <td><button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#myModal">Ver itens pedidos</button></td>
             </tr>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Detalhes do pedido</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <% order.order_meals.in_groups_of(2, false) do |group| %>
+                        <div class="row">
+                          <% group.each do |order_meal| %>
+                            <div class="col-md-6">
+                              <%= render 'orders/show_row', product: order_meal.meal, quantity: order_meal.quantity %>
+                            </div>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <!-- Modal -->
           <% end %>
         </tbody>
       </table>
@@ -32,26 +60,4 @@
   </div>
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <% if current_cart.empty? %>
-          <p class="alert alert-primary text-center"> Carrinho vazio.</p>
-        <% else %>
-          <% current_cart.each do |item| %>
-            <%= render 'home/cart_row', product: Meal.find(item["meal_id"]), quantity: item["quantity"], show_total: true, item: item %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div> 
+<%# console %>

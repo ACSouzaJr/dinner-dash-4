@@ -7,4 +7,6 @@ class Meal < ApplicationRecord
   
   mount_uploader :image, ImageUploader
 
+  default_scope { where(available: true) }
+
 end

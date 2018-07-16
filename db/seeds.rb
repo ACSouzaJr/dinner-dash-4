@@ -9,6 +9,7 @@
 User.destroy_all
 Meal.destroy_all
 MealCategory.destroy_all
+Order.destroy_all
 
 #users
 User.create! [
@@ -34,14 +35,14 @@ MealCategory.create! [
 
 #Meals
 Meal.create! [
-  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "Salada", meal_category_id: '1', description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'},
-  {name: "Molho iogurt", meal_category_id: '2', description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrão'}
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
+  {name: "Salada", meal_category: MealCategory.find_by(name: "Saladas"), description: 'Possui macarrao, frango, milho, alcaparras e frutas.', price: '10,99', image: 'meals/macrao'},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'},
+  {name: "Molho iogurt", meal_category: MealCategory.find_by(name: "Molhos"), description: 'Possui azeite, iorgute, alho, limão, hortelã e salsinha.', price: '5,00', image: 'meals/macrao'}
 ]
 
 #Situation

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_07_05_212442) do
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.string "image"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.bigint "meal_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
